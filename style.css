@@ -7,47 +7,46 @@
 }
 
 :root {
-  --BG-COLOR: #fff;
-  --COLOR: #000;
-  --POINT-COLOR: #e74c3c;
+  --primary-color: #000;
+  --secondary-color: #fff;
 }
 
 html {
   transition: all 0.5s ease-in;
-  background-color: var(--BG-COLOR);
-  color: var(--COLOR);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --BG-COLOR: #000;
-    --COLOR: #fff;
-    --POINT-COLOR: #e74c3c;
-  }
+html.dark {
+  --primary-color: #fff;
+  --secondary-color: #333;
+}
+
+html.dark {
+  background-color: #111;
+  color: var(--primary-color);
 }
 
 body {
-  font-family: "Heebo", sans-serif;
+  font-family: 'Heebo', sans-serif;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 100vh;
   overflow: hidden;
+  margin: 0;
 }
 
 .toggle {
   cursor: pointer;
-  background-color: var(--COLOR);
-  color: var(--BG-COLOR);
-  border: none;
-  padding: 8px 12px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 0;
   border-radius: 4px;
+  padding: 8px 12px;
   position: absolute;
   top: 100px;
 }
 
 .toggle:focus {
-  box-shadow: 0 0 15px 1px orange;
   outline: none;
 }
 
@@ -65,12 +64,12 @@ body {
 }
 
 .needle {
-  background-color: var(--COLOR);
+  background-color: var(--primary-color);
   position: absolute;
-  height: 65px;
-  width: 3px;
   top: 50%;
   left: 50%;
+  height: 65px;
+  width: 3px;
   transform-origin: bottom center;
   transition: all 0.5s ease-in linear;
 }
@@ -81,14 +80,17 @@ body {
 
 .needle.minute {
   transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
 }
 
 .needle.second {
   transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
+  background-color: #e74c3c;
 }
 
 .center-point {
-  background-color: var(--POINT-COLOR);
+  background-color: #e74c3c;
   width: 10px;
   height: 10px;
   position: absolute;
@@ -99,8 +101,8 @@ body {
 }
 
 .center-point::after {
-  content: "";
-  background-color: var(--COLOR);
+  content: '';
+  background-color: var(--primary-color);
   width: 5px;
   height: 5px;
   position: absolute;
@@ -122,8 +124,8 @@ body {
 }
 
 .date .circle {
-  background-color: var(--COLOR);
-  color: var(--BG-COLOR);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   border-radius: 50%;
   height: 18px;
   width: 18px;
